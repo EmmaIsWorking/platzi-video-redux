@@ -11,18 +11,20 @@ module.exports = (env) => {
 
 	return {
 		entry: {
-			app: path.resolve(__dirname, 'src/entries/app.js'),
+			app: path.resolve(__dirname, 'src/pages/containers/app'),
 			// "redux": path.resolve(__dirname, 'src/entries/redux.js'),
 		},
 		output: {
 			path: path.resolve(__dirname, 'dist'),
-			filename: 'js/[name].js',
+			filename: 'ssr/[name].js',
 			publicPath: '/',
 			chunkFilename: 'js/[id].[chunkhash].js',
+			libraryTarget: 'commonjs2',
 		},
 		devServer: {
 			port: 9000,
 		},
+		target: 'node',
 		module: {
 			rules: [
 				{
